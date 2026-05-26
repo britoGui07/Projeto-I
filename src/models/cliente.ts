@@ -1,4 +1,4 @@
-class cliente {
+export class Cliente {
     id_cliente: number
     nome: string
     cpf: string

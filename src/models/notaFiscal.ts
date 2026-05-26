@@ -2,8 +2,8 @@ import {Cliente} from "./cliente"
 import {Vendedor} from "./vendedor"
 import {Carro} from "./carro"
 
-export class notaFiscal{
-    id: number
+export class NotaFiscal{
+    id_nota: number
     numero_nota: string
     data_emissao: Date
     valor_total: number
@@ -13,7 +13,7 @@ export class notaFiscal{
     
     constructor(numero_nota: string, data_emissao: Date, valor_total: number, id_cliente: Cliente, id_vendedor: Vendedor, id_carro: Carro){
 
-        this.id = this.geraID()
+        this.id_nota = this.geraID()
         this.numero_nota = numero_nota
         this.data_emissao = data_emissao
         this.valor_total = valor_total
