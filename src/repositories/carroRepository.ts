@@ -33,3 +33,11 @@ export function atualizarCarro(id: number, data: carroData): Carro | undefined{
     
     return carro
 }
+
+export function removerCarro(id: number): boolean{
+    const pos = carros.findIndex(c => c.id_carro === id)
+    if(pos === -1) return false
+
+    carros.splice(pos, 1)
+    return true
+}
