@@ -1,18 +1,21 @@
 import {Carro} from "./carro"
 
-export class Estoque{
-    id_estoque: number
+export interface estoqueData{
     id_carro: Carro
     quantidade: number
     localizacao_patio: string
     data_entrada: Date
+}
+export class Estoque{
+    id_estoque: number
 
-    constructor(id_carro: Carro, quantidade: number, localizacao_patio: string, data_entrada: Date){
+    constructor(
+        public id_carro: Carro,
+        public quantidade: number,
+        public localizacao_patio: string,
+        public data_entrada: Date
+    ){
         this.id_estoque = this.geraID()
-        this.id_carro = id_carro
-        this.quantidade = quantidade
-        this.localizacao_patio = localizacao_patio
-        this.data_entrada = data_entrada
     }
 
     private geraID(): number{

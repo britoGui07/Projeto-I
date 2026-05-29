@@ -14,5 +14,5 @@ export function mostrarTodos(): NotaFiscal[]{
 }
 
 export function buscarPorID(id: number): NotaFiscal | undefined{
-    return notas.find(c => c.id_nota === id)
+    return notas.find(n => n.id_nota === id)
 }
