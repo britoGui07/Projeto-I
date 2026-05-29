@@ -39,3 +39,7 @@ export function removerCliente(id:number): boolean{
     clientes.splice(pos, 1)
     return true
 }
+
+export function mostrarTodos(): Cliente[]{
+    return clientes
+}
