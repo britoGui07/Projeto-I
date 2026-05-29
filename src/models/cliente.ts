@@ -1,17 +1,21 @@
-export class Cliente {
-    id_cliente: number
+export interface clienteData {
     nome: string
     cpf: string
     email?: string
     cidade?: string
+}
+    export class Cliente {
+         id_cliente: number
 
-    constructor(nome: string, cpf: string, telefone: string, email: string, cidade: string) {
-        this.id_cliente = this.geraID()
-        this.nome = nome
-        this.cpf = cpf
-        this.email = email
-        this.cidade = cidade
-    }
+         constructor(
+            public nome: string,
+            public cpf: string,
+            public email?: string,
+            public cidade?: string
+        ) {
+            this.id_cliente = this.geraID()
+        }
+
     private geraID(): number {
         return Date.now()
     }
