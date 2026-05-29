@@ -2,7 +2,7 @@ import {Carro, carroData} from "../models/carro"
 
 let carros: Carro[] = []
 
-export function novoCarro(data: carroData): Carro{
+export function cadastrarNovoCarro(data: carroData): Carro{
     const novoCarro = new Carro(data.marca, data.modelo, data.ano, data.placa, data.preco, data.cor)
     carros.push(novoCarro)
     return novoCarro
