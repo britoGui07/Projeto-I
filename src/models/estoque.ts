@@ -1,16 +1,15 @@
-import {Carro} from "./carro"
-
 export interface estoqueData{
-    id_carro: Carro
+    id_carro: number
     quantidade: number
     localizacao_patio: string
     data_entrada: Date
 }
+
 export class Estoque{
     id_estoque: number
 
     constructor(
-        public id_carro: Carro,
+        public id_carro: number,
         public quantidade: number,
         public localizacao_patio: string,
         public data_entrada: Date
