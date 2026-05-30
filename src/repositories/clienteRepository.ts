@@ -3,7 +3,7 @@ import {Cliente, clienteData } from "../models/cliente"
 let clientes: Cliente [] = []
 
 export function cadastrarNovoCliente(data: clienteData): Cliente{
-    const novoCliente = new Cliente(data.nome, data.cpf, data.email, data.cidade)
+    const novoCliente = new Cliente(data.nome, data.cpf, data.telefone, data.email, data.cidade)
     clientes.push(novoCliente)
     return novoCliente
 }
@@ -26,6 +26,7 @@ export function atualizarCliente(id:number, data: clienteData): Cliente| undefin
 
     if(data.nome) cliente.nome = data.nome
     if(data.cpf) cliente.cpf = data.cpf
+    if(data.telefone) cliente.telefone = data.telefone
     if(data.email) cliente.email = data.email
     if(data.cidade) cliente.cidade = data.cidade
 

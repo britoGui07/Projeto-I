@@ -1,6 +1,7 @@
 export interface clienteData {
     nome: string
     cpf: string
+    telefone:string
     email?: string
     cidade?: string
 }
@@ -10,6 +11,7 @@ export interface clienteData {
          constructor(
             public nome: string,
             public cpf: string,
+            public telefone:string,
             public email?: string,
             public cidade?: string
         ) {
