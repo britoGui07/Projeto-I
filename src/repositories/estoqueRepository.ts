@@ -6,12 +6,16 @@ export function mostrarTodos(): Estoque[]{
     return estoques
 }
 
+export function mostrarCarrosDisponiveis(): number[]{
+    return estoques.filter(e => e.quantidade > 0).map(e => e.id_carro)
+}
+
 export function buscarPorID(id: number): Estoque | undefined{
     return estoques.find(e => e.id_estoque === id)
 }
 
 export function buscarPorIdCarro(id: number): Estoque | undefined{
-    return estoques.find(e => e.id_carro.id_carro === id)
+    return estoques.find(e => e.id_carro === id)
 }
 
 export function novoRegistroEstoque(data: estoqueData): Estoque{
@@ -20,11 +24,11 @@ export function novoRegistroEstoque(data: estoqueData): Estoque{
     return novoEstoque
 }
 
-export function atualizarEstoque(id: number, data: estoqueData): Estoque | undefined{
+export function atualizarEstoque(id: number, data: Partial<estoqueData>): Estoque | undefined{
     const estoque = estoques.find(e => e.id_estoque === id)
     if(!estoque) return undefined
 
-    if(data.quantidade) estoque.quantidade = data.quantidade
+    if(data.quantidade !== undefined) estoque.quantidade = data.quantidade
     if(data.localizacao_patio) estoque.localizacao_patio = data.localizacao_patio
     
     return estoque

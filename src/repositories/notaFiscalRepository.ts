@@ -16,3 +16,15 @@ export function mostrarTodos(): NotaFiscal[]{
 export function buscarPorID(id: number): NotaFiscal | undefined{
     return notas.find(n => n.id_nota === id)
 }
+
+export function buscarPorIdCliente(id: number): NotaFiscal[]{
+    return notas.filter(n => n.id_cliente === id)
+}
+
+export function buscarPorIdVendedor(id: number): NotaFiscal[]{
+    return notas.filter(n => n.id_vendedor === id)
+}
+
+export function buscarPeloNumero(num_nota: string): NotaFiscal | undefined{
+    return notas.find(n => n.numero_nota === num_nota)
+}
