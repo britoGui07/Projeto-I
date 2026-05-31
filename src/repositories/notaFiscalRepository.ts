@@ -25,6 +25,10 @@ export function buscarPorIdVendedor(id: number): NotaFiscal[]{
     return notas.filter(n => n.id_vendedor === id)
 }
 
+export function buscarPorIdCarro(id: number): NotaFiscal | undefined{
+    return notas.find(n => n.id_carro === id)
+}
+
 export function buscarPeloNumero(num_nota: string): NotaFiscal | undefined{
     return notas.find(n => n.numero_nota === num_nota)
 }
