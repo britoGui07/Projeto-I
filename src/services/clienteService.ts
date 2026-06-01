@@ -22,9 +22,9 @@ export function atualizarCliente(id:number, data: clienteData){
     if(!data.telefone) throw new Error ("Telefone é obrigatório")
     
         const cpfExistente = clienteRepository.filtrarPorCPF(data.cpf)
-        if(cpfExistente && cpfExistente.id_cliente !== id)
-            throw new Error ("CPF já cadastrado!")
-        return clienteRepository.atualizarCliente(id, data)
+        if(cpfExistente && cpfExistente.id_cliente !== id) throw new Error ("CPF já cadastrado!")
+        
+            return clienteRepository.atualizarCliente(id, data)
 }
 
 export function removerCliente(id: number) {
