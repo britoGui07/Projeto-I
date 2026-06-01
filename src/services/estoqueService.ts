@@ -39,7 +39,7 @@ export function mostrarCarrosDisponiveis(){
 export function buscarPorID(id: number){
     const estoque = estoqueRepository.buscarPorID(id)
     if(!estoque) throw new Error("Registro de estoque não encontrado!")
-        return estoque
+    return estoque
 }
 
 export function buscarPorIdCarro(id: number){
