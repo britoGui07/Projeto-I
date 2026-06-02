@@ -8,7 +8,7 @@ export function criarCliente(req: Request, res:Response){
         res.status(201).json(cliente)
     }catch (e:unknown){
         const msg = (e as Error).message
-        if (msg.includes("Já cadastrado")) return res.status(409).json ({status: "error", message: msg})
+        if (msg.includes("já cadastrado")) return res.status(409).json ({status: "error", message: msg})
             res.status(400).json({status: "error", message: msg})
     }
 }
@@ -21,8 +21,8 @@ export function atualizarCliente(req:Request, res: Response){
         res.status(200).json(cliente)
     }catch (e: unknown){
         const msg = (e as Error).message
-        if(msg.includes("Não encontrado")) return res.status(404).json({status:"error", message: msg})
-        if(msg.includes("Já cadastrado")) return res.status(409).json({status:"error", message: msg})
+        if(msg.includes("não encontrado")) return res.status(404).json({status:"error", message: msg})
+        if(msg.includes("já cadastrado")) return res.status(409).json({status:"error", message: msg})
         res.status(400).json({status:"error", message: msg})
     }
 }
@@ -40,7 +40,7 @@ export function buscarCliente(req:Request, res:Response){
         const cliente = clienteService.filtrarPorID(id)
         res.status(200).json(cliente)
     }catch (e:unknown){
-        res.status(500).json({status:"error", message: (e as Error). message})
+        res.status(404).json({status:"error", message: (e as Error). message})
     }
 }
 export function listarNotasDoCliente(req:Request, res:Response){
@@ -50,7 +50,7 @@ export function listarNotasDoCliente(req:Request, res:Response){
         res.status(200).json (notas)
     } catch (e:unknown){
         const msg = (e as Error).message
-        if(msg.includes("Não encontrado")) return res.status(404).json({status:"error", message: msg})
+        if(msg.includes("não encontrado")) return res.status(404).json({status:"error", message: msg})
             res.status(400).json({status:"error", message: msg})
     }
 }
@@ -63,7 +63,7 @@ export function removerCliente(req: Request, res:Response){
     }catch (e:unknown){
         const msg = (e as Error).message
         if(msg.includes("não encontrado")) return res.status(404).json({status:"error", message: msg})
-        if(msg.includes("Nota Fiscal Vinculada")) return res.status(422).json({status:"error", message: msg})
+        if(msg.includes("nota fiscal vinculada")) return res.status(422).json({status:"error", message: msg})
         res.status(400).json ({status:"error", message: msg})
     }
 }
