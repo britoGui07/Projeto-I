@@ -48,9 +48,17 @@ export function buscarPorID(id: number){
 export function buscarPorMatricula(matricula:string){
     const vendedor = vendedorRepository.buscarPorMatricula(matricula)
     if(!vendedor) throw new Error ("Vendedor não encontrado")
+    return vendedor
 }
 
 export function buscarPorNome(nome: string){
     const vendedor = vendedorRepository.buscarPorNome(nome)
     if(!vendedor) throw new Error ("Vendedor não encontrado")
+    return vendedor
 }
+
+export function listarNotasDoVendedor(id: number){
+    const vendedor = vendedorRepository.buscarPorID(id)
+    if(!vendedor) throw new Error ("Vendedor não encontrado")
+    return notaFiscalRepository.buscarPorID(id)
+} 
