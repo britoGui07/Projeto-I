@@ -57,4 +57,10 @@ export function filtrarPorNome(nome:string){
     return cliente
 }
 
+export function listarNotasDoCliente(id: number){
+    const cliente = clienteRepository.filtrarPorID
+    if(!cliente) throw new Error ("Não encontrado")
+    return notaFiscalRepository.buscarPorIdCliente(id)
+}
+
     
