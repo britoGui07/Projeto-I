@@ -8,7 +8,8 @@ export function criarVendedor(req: Request, res:Response){
         res.status(201).json(vendedor)
     }catch(e:unknown){
         const msg = (e as Error).message
-        if(msg.includes("Já cadastrado")) return res.status(409).json({status:"error", message:msg})
+        if(msg.includes("já cadastrado")) return res.status(409).json({status:"error", message:msg})
+        res.status(400).json({status:"error", message:msg})
     }
 }
 
@@ -64,7 +65,8 @@ export function removerVendedor(req:Request, res:Response){
         res.status(200).json({message: "Vendedor removido com sucesso!"})
     }catch(e:unknown){
         const msg = (e as Error).message
-        if(msg.includes("Nãoe encontrado")) return res.status(404).json({status:"error", message:msg})
+        if(msg.includes("não encontrado")) return res.status(404).json({status:"error", message:msg})
+        if(msg.includes("Nota fiscal vinculada")) return res.status(422).json({status:"error", message:msg})
         res.status(400).json({status:"error",message:msg})
     }
 }
