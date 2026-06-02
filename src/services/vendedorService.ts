@@ -60,5 +60,5 @@ export function buscarPorNome(nome: string){
 export function listarNotasDoVendedor(id: number){
     const vendedor = vendedorRepository.buscarPorID(id)
     if(!vendedor) throw new Error ("Vendedor não encontrado")
-    return notaFiscalRepository.buscarPorID(id)
-} 
+    return notaFiscalRepository.buscarPorIdVendedor(id)
+}
